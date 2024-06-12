@@ -1,0 +1,56 @@
+module mult(
+	imediat, 
+	r0,
+	r1,
+	r2,
+	r3,
+	r4,
+	r5,
+	r6,
+	r7,
+	r,
+	imediat_select, 
+	reg_select,
+	r_select,
+	bus);
+
+input [15:0] imediat, r0, r1, r2, r3, r4, r5, r6, r7, r;
+input imediat_select, reg_select, r_select;
+output [15:0] bus;
+reg [15:0] bus;
+
+ always @(imediat_select or reg_select or r_select) begin
+ 	if(imediat_select == 1)begin
+ 		bus <= imediat;
+ 	end
+ 	else if(r_select == 1)begin
+ 		bus <= r;
+ 	end
+ 	else if(reg_select == 8'b10000000)begin
+ 		bus <= r0;
+ 	end 
+ 	else if(reg_select == 8'b01000000)begin
+ 		bus <= r1;
+ 	end 
+ 	else if(reg_select == 8'b00100000)begin
+ 		bus <= r2;
+ 	end 
+ 	else if(reg_select == 8'b00010000)begin
+ 		bus <= r3;
+ 	end 
+ 	else if(reg_select == 8'b00001000)begin
+ 		bus <= r4;
+ 	end 
+ 	else if(reg_select == 8'b00000100)begin
+ 		bus <= r5;
+ 	end 
+ 	else if(reg_select == 8'b00000010)begin
+ 		bus <= r6;
+ 	end 
+ 	else if(reg_select == 8'b00000001)begin
+ 		bus <= r7;
+ 	end
+ 	else bus <= 16'b0000000000000000; 
+ end
+
+endmodule
