@@ -1,4 +1,4 @@
-`include "processor.v"
+`include "processador.v"
 module testbench;
 reg clock = 0;
 reg [15:0] iin;

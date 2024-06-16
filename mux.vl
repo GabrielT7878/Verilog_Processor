@@ -15,7 +15,8 @@ module mult(
 	bus);
 
 input [15:0] imediat, r0, r1, r2, r3, r4, r5, r6, r7, r;
-input imediat_select, reg_select, r_select;
+input imediat_select, r_select;
+input [7:0] reg_select;
 output [15:0] bus;
 reg [15:0] bus;
 
