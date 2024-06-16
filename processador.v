@@ -43,7 +43,7 @@ wire [15:0] r0, r1, r2, r3, r4, r5, r6, r7, r, a;
 
 
 always @(bus) begin 
-	outProcessador <= bus;
+	outProcessador <= bus1;
 end
 
 always @(iin)begin

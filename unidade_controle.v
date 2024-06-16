@@ -25,8 +25,8 @@ negativo
 input [8:0] in;
 input [1:0] cont;
 input resetn;
-output reg immediate_select;
-output reg [7:0] reg_select
+output reg r_select, immediate_select;
+output reg [7:0] reg_select;
 output reg r0_enable, r1_enable, r2_enable, r3_enable, r4_enable, r5_enable, r6_enable, r7_enable, a_enable, r_enable, clear;
 output reg opSelect, negativo;
 reg [2:0] opcode;
@@ -107,25 +107,11 @@ always @(in or cont) begin
 				if(status == 2'b00 || status == 2'b10 && saida == 1) begin
 					immediate_select <= 0;
 					r_select <= 0;
-					r0_select <= outRegister1;
-					r1_select <= outRegister1;
-					r2_select <= outRegister1;
-					r3_select <= outRegister1;
-					r4_select <= outRegister1;
-					r5_select <= outRegister1;
-					r6_select <= outRegister1;
-					r7_select <= outRegister1;
+					reg_select <= outRegister1;
 				end else if(status == 2'b01 || 2'b11) begin
 					immediate_select <= 0;
 					r_select <= 0;
-					r0_select <= 0;
-					r1_select <= 0;
-					r2_select <= 0;
-					r3_select <= 0;
-					r4_select <= 0;
-					r5_select <= 0;
-					r6_select <= 0;
-					r7_select <= 0;
+					reg_select <= 0;
 				end
 			end
 			2'b10:begin// clk 3
@@ -134,14 +120,7 @@ always @(in or cont) begin
 				if(status != 2'b11) begin
 					immediate_select <= 0;
 					r_select <= 0;
-					r0_select <= outRegister2;
-					r1_select <= outRegister2;
-					r2_select <= outRegister2;
-					r3_select <= outRegister2;
-					r4_select <= outRegister2;
-					r5_select <= outRegister2;
-					r6_select <= outRegister2;
-					r7_select <= outRegister2;
+					reg_select <= outRegister2;
 				end 
 				else begin
 					immediate_select <= 1;
