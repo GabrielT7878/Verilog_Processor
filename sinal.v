@@ -1,4 +1,4 @@
-module compl2(in, controle, out);
+module sinal(in, controle, out);
 
 input [15:0] in;
 input controle;

@@ -1,4 +1,4 @@
-`include "compl2.v"
+`include "sinal.v"
 `include "registrador.v"
 `include "ula.vl"
 `include "extensor.vl"
@@ -50,7 +50,7 @@ always @(iin)begin
 	iin9 <= {iin[15], iin[14],iin[13], iin[12], iin[11], iin[10],iin[9], iin[8], iin[7]};
 end
 
-compl2 c2(bus1, negativo, bus);
+sinal c2(bus1, negativo, bus);
 
 extensor ext (iin, imediat);
 
