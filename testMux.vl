@@ -1,0 +1,35 @@
+`include "mux.vl"
+
+module testeMux;
+
+input [15:0] imediat, r0, r1, r2, r3, r4, r5, r6, r7, r;
+input imediat_select, r_select;
+input [7:0] reg_select;
+output [15:0] bus;
+reg [15:0] bus;
+
+initial $dumpfile("testMux.vcd");
+initial $dumpvars(0, testeMux);
+mult m(imediat, 
+	r0,
+	r1,
+	r2,
+	r3,
+	r4,
+	r5,
+	r6,
+	r7,
+	r,
+	imediat_select, 
+	reg_select,
+	r_select,
+	bus);
+
+initial begin
+	# 0 imediat_select = 1'b0;
+    # 0 r0 = 16'b1010101010101010;
+	# 0 reg_select = 8'b10000000;
+	# 0 r_select = 1'b0;
+	# 8 $finish;
+end
+endmodule
