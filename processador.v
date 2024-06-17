@@ -12,33 +12,25 @@ input [15:0] iin;
 output reg [15:0] outProcessador;
 
 // extensor de sinal
-//reg [15:0] iin;
 wire [15:0] imediat;
 
 // contador
-//reg clk, clear;
 wire [1:0] cont;
 
 //unidade de controle
 reg [8:0] iin9;
-//reg [1:0] cont;
 wire immediate_select;
 wire [7:0] reg_select;
 wire r0_enable, r1_enable, r2_enable, r3_enable, r4_enable, r5_enable, r6_enable, r7_enable, a_enable, r_enable;
 wire opSelect, clear, negativo;
 
 //multiplexador
-//reg [15:0] imediat, r0, r1, r2, r3, r4, r5, r6, r7, r;
-//reg imediat_select, r0_select, r1_select, r2_select, r3_select, r4_select, r5_select, r6_select, r7_select, r_select;
 wire [15:0] bus1, bus;
 
 //ula
-//reg [15:0] bus, a;
-//reg opSelect;
 wire [15:0] out;
 
 //registrador
-//reg r0_enable, r1_enable, r2_enable, r3_enable, r4_enable, r5_enable, r6_enable, r7_enable, a_enable, r_enable;
 wire [15:0] r0, r1, r2, r3, r4, r5, r6, r7, r, a;
 
 
